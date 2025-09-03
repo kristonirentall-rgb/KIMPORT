@@ -1,6 +1,8 @@
 .container {
   position: relative;
-  padding: 6rem 2rem;
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
   background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
   overflow: hidden;
 }
@@ -20,30 +22,22 @@
   background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
   border-radius: 50%;
   animation: float 15s infinite ease-in-out;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .floatingShape:nth-child(1) {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   top: 10%;
   left: 5%;
   animation-delay: var(--delay);
 }
 
 .floatingShape:nth-child(2) {
-  width: 150px;
-  height: 150px;
-  top: 70%;
-  left: 80%;
-  animation-delay: var(--delay);
-}
-
-.floatingShape:nth-child(3) {
   width: 100px;
   height: 100px;
-  top: 40%;
-  left: 90%;
+  top: 70%;
+  left: 80%;
   animation-delay: var(--delay);
 }
 
@@ -52,10 +46,10 @@
     transform: translateY(0) rotate(0deg);
   }
   33% {
-    transform: translateY(-20px) rotate(5deg);
+    transform: translateY(-15px) rotate(3deg);
   }
   66% {
-    transform: translateY(10px) rotate(-5deg);
+    transform: translateY(8px) rotate(-3deg);
   }
 }
 
@@ -68,9 +62,9 @@
 
 .title {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
@@ -80,38 +74,36 @@
 }
 
 .title h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #2d3748;
   margin-bottom: 0.5rem;
+  line-height: 1.2;
 }
 
 .subtitle {
   display: block;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #64748b;
   font-weight: 400;
   margin-bottom: 1rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 .titleUnderline {
-  height: 4px;
-  width: 80px;
+  height: 3px;
+  width: 60px;
   background: linear-gradient(to right, #4f46e5, #7c3aed);
-  margin: 0 auto;
+  margin: 0.5rem auto;
   border-radius: 2px;
 }
 
 /* Project Statistics */
 .stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 3rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -124,7 +116,7 @@
 
 .statItem {
   background: white;
-  padding: 1.5rem;
+  padding: 1.2rem 0.8rem;
   border-radius: 12px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -132,33 +124,32 @@
 }
 
 .statItem:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
 }
 
 .statNumber {
   display: block;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 800;
   color: #4f46e5;
   line-height: 1;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 .statLabel {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #64748b;
   font-weight: 600;
 }
 
-.filters {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-bottom: 2.5rem;
+/* Filters Container */
+.filtersContainer {
+  margin-bottom: 2rem;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
 }
 
 .filtersVisible {
@@ -166,18 +157,25 @@
   transform: translateY(0);
 }
 
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  min-width: max-content;
+}
+
 .filterButton {
-  padding: 0.6rem 1.25rem;
+  padding: 0.6rem 1rem;
   border: 2px solid #e2e8f0;
   background: white;
   color: #64748b;
-  border-radius: 50px;
+  border-radius: 20px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  opacity: 0;
-  animation: fadeIn 0.5s forwards;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .filterButton:hover {
@@ -192,9 +190,10 @@
   color: white;
 }
 
+/* Projects Counter */
 .counter {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -206,7 +205,7 @@
 }
 
 .counterNumber {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 800;
   color: #4f46e5;
   display: block;
@@ -214,34 +213,37 @@
 }
 
 .counterText {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #64748b;
+  margin-top: 0.3rem;
 }
 
+/* Projects Grid */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 
+/* Empty State */
 .emptyState {
   grid-column: 1 / -1;
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 2.5rem 1.5rem;
   background: white;
   border-radius: 16px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 
 .emptyIcon {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
   opacity: 0.5;
 }
 
 .emptyState h3 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #2d3748;
   margin-bottom: 0.5rem;
 }
@@ -249,7 +251,8 @@
 .emptyState p {
   color: #718096;
   margin: 0 0 1.5rem 0;
-  line-height: 1.6;
+  line-height: 1.5;
+  font-size: 0.9rem;
 }
 
 .viewAllButton {
@@ -261,6 +264,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-size: 0.9rem;
 }
 
 .viewAllButton:hover {
@@ -270,8 +274,8 @@
 
 /* Deployment Section */
 .deployment {
-  margin-top: 4rem;
-  padding-top: 3rem;
+  margin-top: 3rem;
+  padding-top: 2.5rem;
   border-top: 1px solid #e2e8f0;
   opacity: 0;
   transform: translateY(20px);
@@ -285,20 +289,20 @@
 
 .deployment h3 {
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #2d3748;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .deploymentGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
 }
 
 .deploymentItem {
   text-align: center;
-  padding: 2rem 1.5rem;
+  padding: 1.5rem 1rem;
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -306,100 +310,211 @@
 }
 
 .deploymentItem:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
 }
 
 .deploymentIcon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
 }
 
 .deploymentItem h4 {
   color: #2d3748;
-  margin-bottom: 0.75rem;
-  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
 }
 
 .deploymentItem p {
   color: #64748b;
-  line-height: 1.6;
+  line-height: 1.5;
   margin: 0;
+  font-size: 0.9rem;
 }
 
-/* Animation for filter buttons */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 968px) {
+/* Tablet Styles */
+@media (min-width: 640px) {
   .container {
     padding: 4rem 1.5rem;
-  }
-  
-  .projects {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
   }
   
   .title h2 {
     font-size: 2.2rem;
   }
   
-  .stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .container {
-    padding: 3rem 1rem;
+  .subtitle {
+    font-size: 1.1rem;
   }
   
-  .title h2 {
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+  }
+  
+  .statItem {
+    padding: 1.5rem 1rem;
+  }
+  
+  .statNumber {
     font-size: 2rem;
   }
   
-  .subtitle {
-    font-size: 1rem;
+  .statLabel {
+    font-size: 0.9rem;
   }
   
   .filters {
-    gap: 0.5rem;
-  }
-  
-  .filterButton {
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
   }
   
   .projects {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .counterNumber {
-    font-size: 2rem;
-  }
-  
-  .emptyState {
-    padding: 3rem 1.5rem;
-  }
-  
-  .stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
   }
   
   .deploymentGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+  .container {
+    padding: 5rem 2rem;
+  }
+  
+  .title h2 {
+    font-size: 2.5rem;
+  }
+  
+  .stats {
+    gap: 1.5rem;
+  }
+  
+  .statItem {
+    padding: 2rem 1.5rem;
+  }
+  
+  .statNumber {
+    font-size: 2.2rem;
+  }
+  
+  .projects {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .filters {
+    gap: 0.8rem;
+  }
+  
+  .filterButton {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1280px) {
+  .projects {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Very small mobile devices */
+@media (max-width: 360px) {
+  .container {
+    padding: 2.5rem 0.8rem;
+  }
+  
+  .title h2 {
+    font-size: 1.8rem;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  
+  .statItem {
+    padding: 1rem 0.5rem;
+  }
+  
+  .statNumber {
+    font-size: 1.6rem;
+  }
+  
+  .statLabel {
+    font-size: 0.75rem;
+  }
+  
+  .filterButton {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.75rem;
+  }
+  
+  .counterNumber {
+    font-size: 1.8rem;
+  }
+  
+  .counterText {
+    font-size: 0.8rem;
+  }
+  
+  .emptyState {
+    padding: 2rem 1rem;
+  }
+  
+  .emptyState h3 {
+    font-size: 1.2rem;
+  }
+  
+  .emptyState p {
+    font-size: 0.85rem;
+  }
+  
+  .deploymentItem {
+    padding: 1.2rem 0.8rem;
+  }
+  
+  .deploymentItem h4 {
+    font-size: 1rem;
+  }
+  
+  .deploymentItem p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .statItem:hover,
+  .filterButton:hover,
+  .deploymentItem:hover,
+  .viewAllButton:hover {
+    transform: none;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animatedBackground,
+  .floatingShape,
+  .title,
+  .stats,
+  .filtersContainer,
+  .counter,
+  .deployment,
+  .statItem,
+  .filterButton,
+  .deploymentItem,
+  .viewAllButton {
+    transition: none;
+    animation: none;
   }
 }
