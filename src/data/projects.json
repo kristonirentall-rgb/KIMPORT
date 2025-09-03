@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Ghana Consumer",
+    "imageSrc": "projects/ghanaconsumer.jpg",
+    "description": "A digital advocacy platform empowering Ghanaians to voice concerns, track issues, and access consumer rights resources. Built with scalability and transparency in mind.",
+    "skills": ["Next.js", "Express.js", "MongoDB", "Vercel"],
+    "demo": "https://www.ghanaconsumer.com",
+    "source": "https://github.com/kristonirentall-rgb/ghanaconsumer.git"
+  },
+  {
+    "title": "Kristoni E-commerce",
+    "imageSrc": "projects/kristoni.jpg",
+    "description": "An e-commerce platform designed for seamless online shopping with responsive UI, product catalog, secure transactions, and intuitive customer experience.",
+    "skills": ["React", "Node.js", "Express.js", "MongoDB"],
+    "demo": "https://www.kristoni.org",
+    "source": "https://github.com/kristonirentall-rgb/kristoni.git"
+  },
+  {
+    "title": "Sedan Landbank",
+    "imageSrc": "projects/sedanlandbank.jpg",
+    "description": "A real estate platform showcasing land sales with an interactive map, gallery, and contact features. Designed to enhance trust and visibility for property buyers.",
+    "skills": ["React", "Next.js", "CSS Modules", "SEO Optimization"],
+    "demo": "https://sedanlandbank.com/",
+    "source": "https://github.com/yourusername/sedanlandbank"
+  },
+  {
+    "title": "PEC Consult Ltd",
+    "imageSrc": "projects/pecconsult.jpg",
+    "description": "A corporate website for a civil engineering consulting firm, featuring service showcases, newsletter integration, and an AI-powered chatbot for client engagement.",
+    "skills": ["React", "Next.js", "Tailwind CSS", "Dialogflow AI", "Vercel"],
+    "demo": "https://pecconsultltd.com.gh/",
+    "source": "https://github.com/yourusername/pecconsult"
+  },
+  {
+    "title": "Kokorokoo Agriculture E-commerce",
+    "imageSrc": "projects/kokorokoo.jpg",
+    "description": "An agriculture-focused e-commerce platform connecting farmers with buyers, featuring blockchain-based transaction tracking and secure payment integration.",
+    "skills": ["Next.js", "Node.js", "Express.js", "MongoDB", "Blockchain", "Stripe", "AI Insights"],
+    "demo": "https://www.kokoroko.com",
+    "source": "https://github.com/kristonirentall-rgb"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "role": "Lead Developer",
+    "organisation": "Ghana Consumer",
+    "startDate": "Jan, 2025",
+    "endDate": "Present",
+    "experiences": [
+      "Built and launched a digital platform to give Ghanaian consumers a voice to express concerns and experiences",
+      "Developed core features including secure complaint submissions, issue tracking, and a responsive web interface",
+      "Integrated modern technologies such as AI-driven insights to analyze consumer data and trends"
+    ],
+    "imageSrc": "history/ghanaconsumer.JPG"
+  },
+  {
+    "role": "Software Engineer",
+    "organisation": "Kristoni.org",
+    "startDate": "Sept, 2025",
+    "endDate": "Present",
+    "experiences": [
+      "Designed and developed scalable web solutions to support Kristoni’s community-driven initiatives",
+      "Implemented clean, responsive UI/UX with React and modern CSS practices",
+      "Collaborated on technical strategy to align technology with organizational goals"
+    ],
+    "imageSrc": "history/kristoni.jpeg"
+  },
+  {
+    "role": "Website Developer",
+    "organisation": "Sedan Landbank",
+    "startDate": "May, 2024",
+    "endDate": "Jan, 2025",
+    "experiences": [
+      "Designed and developed a dynamic real estate website to promote land sales and projects",
+      "Built interactive features such as a land gallery, contact forms, and an interactive map",
+      "Ensured responsive design, SEO optimization, and modern UI/UX for better client engagement"
+    ],
+    "imageSrc": "history/sedanlandbank.JPG"
+  },
+  {
+    "role": "Frontend Developer",
+    "organisation": "PEC Consult Ltd",
+    "startDate": "Jan, 2025",
+    "endDate": "August, 2025",
+    "experiences": [
+      "Developing a professional consulting website to showcase civil engineering, infrastructure, and environmental services",
+      "Implemented interactive features such as service modals, newsletter subscriptions, and AI-powered chatbot for client engagement",
+      "Optimized user experience with responsive design and modern UI frameworks"
+    ],
+    "imageSrc": "history/pecconsult.PNG"
+  },
+  {
+    "role": "Full Stack Developer",
+    "organisation": "Kokoroko Agriculture E-commerce",
+    "startDate": "July, 2025",
+    "endDate": "Present",
+    "experiences": [
+      "Building an innovative e-commerce platform to connect farmers with buyers and improve access to agricultural products",
+      "Implemented secure payment systems and integrated blockchain-based transaction tracking for transparency",
+      "Designed scalable backend architecture with Node.js, Express, and MongoDB deployed on Vercel"
+    ],
+    "imageSrc": "history/kokoroko.PNG"
+  }
+]
