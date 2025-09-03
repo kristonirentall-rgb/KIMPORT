@@ -7,10 +7,19 @@ import { getImageUrl } from "../../utils";
 export const Experience = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [selectedExperience, setSelectedExperience] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Check if mobile on initial render and resize
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -25,6 +34,7 @@ export const Experience = () => {
     }
 
     return () => {
+      window.removeEventListener('resize', checkMobile);
       if (containerRef.current) {
         observer.unobserve(containerRef.current);
       }
@@ -34,7 +44,7 @@ export const Experience = () => {
   // Check if skills have categories, otherwise use default categorization
   const hasCategories = skills.some(skill => skill.category);
   
-  // Categorize skills - use actual categories if available, otherwise create default ones
+  // Categorize skills
   const skillCategories = hasCategories ? {
     frontend: skills.filter(skill => skill.category === "frontend"),
     backend: skills.filter(skill => skill.category === "backend"),
@@ -43,7 +53,6 @@ export const Experience = () => {
     cloud: skills.filter(skill => skill.category === "cloud"),
     all: skills
   } : {
-    // Default categorization based on common skill names
     frontend: skills.filter(skill => 
       ['react', 'javascript', 'typescript', 'html', 'css', 'bootstrap', 'angular', 'vue', 'sass', 'less', 'redux', 'frontend', 'ui', 'ux']
       .some(term => skill.title.toLowerCase().includes(term))
@@ -89,7 +98,7 @@ export const Experience = () => {
               className={`${styles.filterButton} ${activeCategory === "all" ? styles.activeFilter : ''}`}
               onClick={() => setActiveCategory("all")}
             >
-              All Skills
+              All
             </button>
             <button 
               className={`${styles.filterButton} ${activeCategory === "frontend" ? styles.activeFilter : ''}`}
@@ -113,7 +122,7 @@ export const Experience = () => {
               className={`${styles.filterButton} ${activeCategory === "cloud" ? styles.activeFilter : ''}`}
               onClick={() => setActiveCategory("cloud")}
             >
-              Cloud & DevOps
+              Cloud
             </button>
           </div>
           
@@ -151,7 +160,7 @@ export const Experience = () => {
                     </div>
                     <div className={styles.experience}>
                       <span className={styles.experienceText}>
-                        {skill.experience || '3+'} years experience
+                        {skill.experience || '3+'} years
                       </span>
                     </div>
                   </div>
@@ -206,7 +215,7 @@ export const Experience = () => {
                     
                     {historyItem.skills && (
                       <div className={styles.roleSkills}>
-                        <h5>Technologies Used:</h5>
+                        <h5>Technologies:</h5>
                         <div className={styles.skillTags}>
                           {historyItem.skills.map((skill, skillId) => (
                             <span key={skillId} className={styles.skillTag}>
