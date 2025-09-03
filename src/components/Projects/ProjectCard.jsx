@@ -1,56 +1,36 @@
 import React from "react";
+
 import styles from "./ProjectCard.module.css";
 import { getImageUrl } from "../../utils";
 
 export const ProjectCard = ({
-  project: { title, imageSrc, description, skills, demo, source, impact },
+  project: { title, imageSrc, description, skills, demo, source },
 }) => {
   return (
-    <div className={styles.card}>
-      <div className={styles.imageWrapper}>
-        <img
-          src={getImageUrl(imageSrc)}
-          alt={`Preview of ${title}`}
-          className={styles.image}
-        />
-      </div>
-
-      <div className={styles.content}>
-        <h3 className={styles.title}>{title}</h3>
-        <p className={styles.description}>{description}</p>
-
-        {impact && <p className={styles.impact}><strong>Impact:</strong> {impact}</p>}
-
-        <ul className={styles.skills}>
-          {skills.map((skill, id) => (
+    <div className={styles.container}>
+      <img
+        src={getImageUrl(imageSrc)}
+        alt={`Image of ${title}`}
+        className={styles.image}
+      />
+      <h3 className={styles.title}>{title}</h3>
+      <p className={styles.description}>{description}</p>
+      <ul className={styles.skills}>
+        {skills.map((skill, id) => {
+          return (
             <li key={id} className={styles.skill}>
               {skill}
             </li>
-          ))}
-        </ul>
-
-        <div className={styles.links}>
-          {demo && (
-            <a
-              href={demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.demoBtn}
-            >
-              Live Demo
-            </a>
-          )}
-          {source && (
-            <a
-              href={source}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.codeBtn}
-            >
-              View Code
-            </a>
-          )}
-        </div>
+          );
+        })}
+      </ul>
+      <div className={styles.links}>
+        <a href={demo} className={styles.link}>
+          Demo
+        </a>
+        <a href={source} className={styles.link}>
+          Source
+        </a>
       </div>
     </div>
   );
