@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+ import React, { useState, useEffect, useRef } from "react";
 import styles from "./About.module.css";
 import { getImageUrl } from "../../utils";
 
@@ -73,6 +73,7 @@ export const About = () => {
               className={`${styles.aboutImage} ${isVisible ? styles.imageVisible : ''}`}
             />
             <div className={styles.imageOverlay}></div>
+             
           </div>
           
           <div className={styles.floatingElements}>
@@ -142,5 +143,4 @@ export const About = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )};
