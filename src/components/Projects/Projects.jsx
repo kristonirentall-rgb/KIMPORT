@@ -6,16 +6,25 @@ import { ProjectCard } from "./ProjectCard";
 export const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef(null);
 
   useEffect(() => {
+    // Check if mobile on initial render and resize
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 } // Lower threshold for mobile
     );
 
     if (containerRef.current) {
@@ -23,6 +32,7 @@ export const Projects = () => {
     }
 
     return () => {
+      window.removeEventListener('resize', checkMobile);
       if (containerRef.current) {
         observer.unobserve(containerRef.current);
       }
@@ -39,72 +49,73 @@ export const Projects = () => {
         project.categories && project.categories.includes(selectedCategory)
       );
 
-  // Enhanced project statistics - impressive numbers for a senior developer
+  // Enhanced project statistics
   const projectStats = {
-    total: projects.length > 0 ? projects.length : 12, // Fallback to 12 if no projects
+    total: projects.length > 0 ? projects.length : 12,
     web: projects.filter(p => p.categories && p.categories.includes("web")).length > 0 ? 
-         projects.filter(p => p.categories && p.categories.includes("web")).length : 5, // Fallback to 5
+         projects.filter(p => p.categories && p.categories.includes("web")).length : 5,
     mobile: projects.filter(p => p.categories && p.categories.includes("mobile")).length > 0 ? 
-           projects.filter(p => p.categories && p.categories.includes("mobile")).length : 2, // Fallback to 4
+           projects.filter(p => p.categories && p.categories.includes("mobile")).length : 2,
     fullstack: projects.filter(p => p.categories && p.categories.includes("fullstack")).length > 0 ? 
-              projects.filter(p => p.categories && p.categories.includes("fullstack")).length : 4 // Fallback to 3
+              projects.filter(p => p.categories && p.categories.includes("fullstack")).length : 4
   };
 
   return (
     <section className={styles.container} id="projects" ref={containerRef}>
-      {/* Animated background elements */}
+      {/* Simplified background for mobile */}
       <div className={styles.animatedBackground}>
         <div className={styles.floatingShape} style={{ '--delay': '0s' }}></div>
         <div className={styles.floatingShape} style={{ '--delay': '3s' }}></div>
-        <div className={styles.floatingShape} style={{ '--delay': '6s' }}></div>
       </div>
       
       <div className={styles.content}>
         <h2 className={`${styles.title} ${isVisible ? styles.titleVisible : ''}`}>
-          Project Portfolio
-          <span className={styles.subtitle}>Showcasing full-stack and mobile development expertise</span>
+          Projects
+          <span className={styles.subtitle}>My development portfolio</span>
           <div className={styles.titleUnderline}></div>
         </h2>
         
-        {/* Project Statistics */}
+        {/* Project Statistics - Simplified for mobile */}
         <div className={`${styles.stats} ${isVisible ? styles.statsVisible : ''}`}>
           <div className={styles.statItem}>
             <span className={styles.statNumber}>{projectStats.total}+</span>
-            <span className={styles.statLabel}>Total Projects</span>
+            <span className={styles.statLabel}>Projects</span>
           </div>
           <div className={styles.statItem}>
             <span className={styles.statNumber}>{projectStats.web}+</span>
-            <span className={styles.statLabel}>Web Applications</span>
+            <span className={styles.statLabel}>Web</span>
           </div>
           <div className={styles.statItem}>
             <span className={styles.statNumber}>{projectStats.mobile}+</span>
-            <span className={styles.statLabel}>Mobile Apps</span>
+            <span className={styles.statLabel}>Mobile</span>
           </div>
           <div className={styles.statItem}>
             <span className={styles.statNumber}>{projectStats.fullstack}+</span>
-            <span className={styles.statLabel}>Full-Stack Solutions</span>
+            <span className={styles.statLabel}>Full-Stack</span>
           </div>
         </div>
         
-        {/* Category Filters */}
-        <div className={`${styles.filters} ${isVisible ? styles.filtersVisible : ''}`}>
-          {allCategories.map((category, index) => (
-            <button
-              key={index}
-              className={`${styles.filterButton} ${selectedCategory === category ? styles.activeFilter : ''}`}
-              onClick={() => setSelectedCategory(category)}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
-            </button>
-          ))}
+        {/* Category Filters - Scrollable on mobile */}
+        <div className={`${styles.filtersContainer} ${isVisible ? styles.filtersVisible : ''}`}>
+          <div className={styles.filters}>
+            {allCategories.map((category, index) => (
+              <button
+                key={index}
+                className={`${styles.filterButton} ${selectedCategory === category ? styles.activeFilter : ''}`}
+                onClick={() => setSelectedCategory(category)}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {isMobile && category.length > 8 ? category.slice(0, 6) + '...' : category}
+              </button>
+            ))}
+          </div>
         </div>
         
         {/* Projects Counter */}
         <div className={`${styles.counter} ${isVisible ? styles.counterVisible : ''}`}>
           <span className={styles.counterNumber}>{filteredProjects.length}</span>
           <span className={styles.counterText}>
-            {filteredProjects.length === 1 ? 'project' : 'projects'} in {selectedCategory === "all" ? "all categories" : selectedCategory}
+            {filteredProjects.length === 1 ? 'project' : 'projects'} in {selectedCategory === "all" ? "all" : selectedCategory}
           </span>
         </div>
         
@@ -125,34 +136,34 @@ export const Projects = () => {
           <div className={styles.emptyState}>
             <div className={styles.emptyIcon}>🔍</div>
             <h3>No projects found</h3>
-            <p>No projects match the selected category. Try another filter!</p>
+            <p>No projects match the selected category.</p>
             <button 
               onClick={() => setSelectedCategory("all")}
               className={styles.viewAllButton}
             >
-              View All Projects
+              View All
             </button>
           </div>
         )}
 
-        {/* Deployment Highlights */}
+        {/* Deployment Highlights - Simplified for mobile */}
         <div className={`${styles.deployment} ${isVisible ? styles.deploymentVisible : ''}`}>
           <h3>Deployment Expertise</h3>
           <div className={styles.deploymentGrid}>
             <div className={styles.deploymentItem}>
               <div className={styles.deploymentIcon}>☁️</div>
               <h4>Cloud Platforms</h4>
-              <p>AWS, DigitalOcean, and other cloud services for scalable deployments</p>
+              <p>AWS, DigitalOcean & cloud services</p>
             </div>
             <div className={styles.deploymentItem}>
               <div className={styles.deploymentIcon}>📱</div>
               <h4>App Stores</h4>
-              <p>Experience publishing to Google Play Store and Apple App Store</p>
+              <p>Google Play & App Store</p>
             </div>
             <div className={styles.deploymentItem}>
               <div className={styles.deploymentIcon}>🚀</div>
               <h4>CI/CD Pipelines</h4>
-              <p>Automated testing and deployment processes for efficient delivery</p>
+              <p>Automated testing & deployment</p>
             </div>
           </div>
         </div>
