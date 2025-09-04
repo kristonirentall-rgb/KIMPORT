@@ -26,7 +26,7 @@ export const Experience = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 } // Lower threshold for mobile
     );
 
     if (containerRef.current) {
@@ -89,8 +89,8 @@ export const Experience = () => {
         {/* Skills Section */}
         <div className={styles.skillsSection}>
           <div className={styles.skillsHeader}>
-            <h3>Technical Proficiencies</h3>
-            <p>Technologies and frameworks I specialize in</p>
+            <h3>Technical Skills</h3>
+            <p>Technologies I specialize in</p>
           </div>
           
           <div className={styles.categoryFilters}>
@@ -155,7 +155,7 @@ export const Experience = () => {
                         ></div>
                       </div>
                       <span className={styles.proficiencyText}>
-                        {skill.proficiency || 80}% Proficiency
+                        {skill.proficiency || 80}%
                       </span>
                     </div>
                     <div className={styles.experience}>
@@ -176,8 +176,8 @@ export const Experience = () => {
         {/* Experience Timeline */}
         <div className={styles.experienceSection}>
           <div className={styles.experienceHeader}>
-            <h3>Professional Experience</h3>
-            <p>My career journey and project contributions</p>
+            <h3>Work Experience</h3>
+            <p>My professional journey</p>
           </div>
           
           <div className={styles.timeline}>
